@@ -1,0 +1,4 @@
+---
+# tasks file for basic
+- include_tasks: server.yml
+- include_tasks: client.yml

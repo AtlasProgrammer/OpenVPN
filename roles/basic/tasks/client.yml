@@ -1,0 +1,96 @@
+---
+#tasks for client-side
+- name: OpenVPN | Copy client-crt files to /etc/openvpn/server
+  copy:
+    src: "{{ openvpn_path }}/easy-rsa/pki/issued/{{ item }}.crt"
+    dest: "{{ openvpn_path }}/server/{{ item }}.crt"
+    mode: "0644"
+    remote_src: true
+  with_items:
+    - "{{ openvpn_clients }}"
+    
+- name: OpenVPN | Copy client-key files to /etc/openvpn/server
+  copy:
+    src: "{{ openvpn_path }}/easy-rsa/pki/private/{{ item }}.key"
+    dest: "{{ openvpn_path }}/server/{{ item }}.key"
+    mode: "0644"
+    remote_src: true
+  with_items:
+    - "{{ openvpn_clients }}"
+    
+- name: OpenVPN | Ensure /etc/openvpn/users exists
+  file:
+    path: "{{ openvpn_path }}/users"
+    state: directory
+    mode: 0755
+    
+- name: OpenVPN | Copy files to /etc/openvpn/users
+  copy:
+    src: "{{ openvpn_path }}/easy-rsa/pki/{{ item }}"
+    dest: "{{ openvpn_path }}/users/{{ item | basename }}"
+    mode: "0644"
+    remote_src: true
+  loop:
+    - ca.crt
+    - ta.key
+    
+- name: OpenVPN | Copy client-crt files to /etc/openvpn/users
+  copy:
+    src: "{{ openvpn_path }}/easy-rsa/pki/issued/{{ item }}.crt"
+    dest: "{{ openvpn_path }}/users/{{ item }}.crt"
+    mode: "0644"
+    remote_src: true
+  with_items:
+    - "{{ openvpn_clients }}"
+    
+- name: OpenVPN | Copy client-key files to /etc/openvpn/users
+  copy:
+    src: "{{ openvpn_path }}/easy-rsa/pki/private/{{ item }}.key"
+    dest: "{{ openvpn_path }}/users/{{ item }}.key"
+    mode: "0644"
+    remote_src: true
+  with_items:
+    - "{{ openvpn_clients }}"
+    
+- name: OpenVPN | Register CA.crt
+  slurp:
+   src: "{{ openvpn_path }}/ca.crt"
+  register: openvpn_ca_cert
+  
+- name: OpenVPN | Register ta.key
+  slurp:
+   src: "{{ openvpn_path }}/ta.key"
+  register: openvpn_ta_key
+
+- name: OpenVPN | CLient certs
+  slurp:
+   src: "{{ openvpn_path }}/users/{{ item }}.crt"
+  with_items:
+   - "{{ openvpn_clients }}"
+  register: openvpn_client_certs
+
+- name: OpenVPN | CLient keys
+  slurp:
+   src: "{{ openvpn_path }}/users/{{ item }}.key"
+  with_items:
+   - "{{ openvpn_clients }}"
+  register: openvpn_client_key
+
+- name: OpenVPN | Generate client config
+  template:
+   src: client.ovpn.j2
+   dest: "{{ openvpn_path }}/users/{{ item.0.item }}-{{ inventory_hostname }}.ovpn"
+   owner: root
+   group: root
+   mode: "0400"
+  with_together:
+   - "{{ openvpn_client_certs.results }}"
+   - "{{ openvpn_client_key.results }}"
+
+- name: Fetch client config
+  fetch:
+   src: "{{ openvpn_path }}/users/{{ item }}-{{ inventory_hostname }}.ovpn"
+   dest: "{{ playbook_dir }}/ovpn/{{ inventory_hostname }}-{{ item }}.ovpn"
+   flat: true
+  with_items:
+   - "{{ openvpn_clients }}"

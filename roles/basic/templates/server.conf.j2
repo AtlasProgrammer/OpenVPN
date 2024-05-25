@@ -1,0 +1,35 @@
+port {{ openvpn_port }}
+proto {{ openvpn_protocol }}
+dev tun
+ca {{ openvpn_path }}/server/ca.crt
+cert {{ openvpn_path }}/server/server.crt
+key {{ openvpn_path }}/server/server.key
+dh {{ openvpn_path }}/server/dh.pem
+
+topology subnet
+server {{ openvpn_network }} {{ openvpn_netmask }}
+ifconfig-pool-persist ipp.txt
+push "redirect-gateway def1 bypass-dhcp"
+push "dhcp-option DNS 1.1.1.1"
+push "dhcp-option DNS 1.0.0.1"
+push "dhcp-option DNS 8.8.8.8"
+push "dhcp-option DNS 8.8.4.4"
+keepalive 20 120
+persist-key
+persist-tun
+user nobody
+group nogroup
+
+tls-auth {{ openvpn_path }}/ta.key 0
+tls-server
+auth SHA256
+cipher AES-256-CBC
+tls-version-min 1.2
+tls-cipher TLS-ECDHE-ECDSA-WITH-AES-256-GCM-SHA384:TLS-ECDHE-RSA-WITH-AES-256-GCM-SHA384:TLS-DHE-RSA-WITH-AES-256-GCM-SHA384
+
+status openvpn-status.log
+status-version 1
+log-append /var/log/openvpn/open/vpn.log
+verb 3
+
+script-security 1

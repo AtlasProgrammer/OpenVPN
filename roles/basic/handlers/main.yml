@@ -1,0 +1,12 @@
+---
+# handlers file for basic
+- name: restart openvpn
+  service:
+   name: openvpn
+   state: restarted
+  
+- name: enable openvpn
+  service:
+   name: openvpn
+   enabled: true
+   state: started

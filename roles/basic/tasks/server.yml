@@ -1,0 +1,130 @@
+---
+#tasks for server-side
+- name: OpenVPN | Install packages
+  apt:
+   name:
+    - openvpn
+    - easy-rsa
+    - iptables-persistent
+   update_cache: yes
+   state: present
+  notify:
+   - enable openvpn
+   
+- name: OpenVPN | Enabled IPv4 forwarding
+  sysctl:
+   name: net.ipv4.ip_forward
+   value: '1'
+   sysctl_set: yes
+   state: present
+   reload: yes
+   ignorerrors: yes
+  failed_when: false
+
+- name: OpenVPN | Create IPTables Chain
+  iptables:
+    table: nat
+    chain: POSTROUTING
+    jump: MASQUERADE
+    protocol: all
+    source: '192.168.1.0/24'
+    out_interface: enp0s3
+    comment: Ansible Nat masquerade
+  
+- name: OpenVPN | Enssure /etc/openvpn/easy-rsa exists
+  file:
+    path: "{{ openvpn_path }}/easy-rsa"
+    state: directory
+    mode: 0755
+
+- name: OpenVPN | Create easy-rsa vars file
+  copy:
+   dest: "{{ openvpn_easyrsa_path }}/vars"
+   content: |
+    set_var EASYRSA_ALGO "ec"
+    set_vat EASYRSA_DIGEST "sha512"
+
+- name: OpenVPN | Easyrsa init-pki
+  command:
+    cmd: "{{ openvpn_easyrsa_path }}/easyrsa init-pki"
+    chdir: /etc/openvpn/easy-rsa
+    creates: "{{ openvpn_path }}/easy-rsa/pki"
+
+- name: OpenVPN | Easyrsa build-ca
+  command:
+    cmd: "{{ openvpn_easyrsa_path }}/easyrsa build-ca nopass"
+    chdir: "{{ openvpn_path }}/easy-rsa"
+    creates: "{{ openvpn_path }}/easy-rsa/pki/ca.crt"
+  environment:
+    EASYRSA_BATCH: "yes"
+
+- name: OpenVPN | Easyrsa gen-dh
+  command:
+    cmd: "{{ openvpn_easyrsa_path }}/easyrsa gen-dh"
+    chdir: "{{ openvpn_path }}/easy-rsa"
+    creates: "{{ openvpn_path }}/easy-rsa/pki/dh.pem"
+
+- name: OpenVPN | Easyrsa gen-crl
+  command:
+    cmd: "{{ openvpn_easyrsa_path }}/easyrsa gen-crl"
+    chdir: "{{ openvpn_path }}/easy-rsa"
+    creates: "{{ openvpn_path }}/easy-rsa/pki/crl.pem"
+    
+- name: OpenVPN | Easyrsa genkey secret
+  command:
+    cmd: "openvpn --genkey --secret {{ openvpn_path }}/easy-rsa/pki/ta.key"
+    creates: "{{ openvpn_path }}/easy-rsa/pki/ta.key"
+
+- name: OpenVPN | Easyrsa build-server-full server nopass
+  command:
+    cmd: "{{ openvpn_easyrsa_path }}/easyrsa build-server-full server nopass"
+    chdir: "{{ openvpn_path }}/easy-rsa"
+    creates: "{{ openvpn_path }}/easy-rsa/pki/issued/server.crt"
+  environment:
+    EASYRSA_BATCH: "yes"
+
+- name: OpenVPN | Easyrsa build-client-full client nopass
+  command:
+    cmd: "{{ openvpn_easyrsa_path }}/easyrsa build-client-full {{ item }} nopass"
+    chdir: "{{ openvpn_path }}/easy-rsa"
+    creates: "{{ openvpn_path }}/easy-rsa/pki/issued/{{ item }}.crt"
+  with_items:
+   - "{{ openvpn_clients }}"
+  environment:
+    EASYRSA_BATCH: "yes"
+
+- name: OpenVPN | Copy files to /etc/openvpn/server
+  copy:
+    src: "{{ openvpn_path }}/easy-rsa/pki/{{ item }}"
+    dest: "{{ openvpn_path }}/server/{{ item | basename }}"
+    mode: "0644"
+    remote_src: true
+  loop:
+    - ca.crt
+    - dh.pem
+    - ta.key
+    - issued/user.crt
+    - issued/server.crt
+    - private/ca.key
+    - private/user.key
+    - private/server.key
+
+- name: OpenVPN | Copy files to /etc/openvpn
+  copy:
+    src: "{{ openvpn_path }}/easy-rsa/pki/{{ item }}"
+    dest: "{{ openvpn_path }}/{{ item | basename }}"
+    mode: "0644"
+    remote_src: true
+  loop:
+    - ca.crt
+    - ta.key
+
+- name: OpenVPN | Place server.conf
+  template:
+    src: server.conf.j2
+    dest: "{{ openvpn_configuration_directory_server }}/server.conf"
+    owner: root
+    group: root
+    mode: "0640"
+  notify:
+   - restart openvpn

@@ -1,0 +1,27 @@
+---
+# all vars for basic
+openvpn_easyrsa_path: "/usr/share/easy-rsa"
+openvpn_path: "/etc/openvpn"
+
+openvpn_service: "openvpn"
+
+openvpn_clients:
+ - user
+#network
+openvpn_port: "1194"
+openvpn_protocol: "udp"
+
+#server
+openvpn_network: 192.168.1.0
+openvpn_netmask: 255.255.255.0
+openvpn_client_server: "{{ ansible_default_ipv4.address }}"
+
+openvpn_easyrsa_path: /usr/share/easy-rsa
+openvpn_path: /etc/openvpn
+
+openvpn_clients:
+ - user
+
+openvpn_configuration_directory_server: "/etc/openvpn"
+openvpn_configuration_directory_client: "/etc/openvpn/client"
+

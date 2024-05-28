@@ -1,3 +1,3 @@
 [openvpn]
-ansible_host=user@192.168.0.113 ansible_user=user ansible_sudo_pass=12
+ansible_host=user@localhost ansible_user=user ansible_sudo_pass=12
 

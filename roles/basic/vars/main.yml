@@ -12,7 +12,7 @@ openvpn_port: "1194"
 openvpn_protocol: "udp"
 
 #server
-openvpn_network: 192.168.1.0
+openvpn_network: 10.9.0.0
 openvpn_netmask: 255.255.255.0
 openvpn_client_server: "{{ ansible_default_ipv4.address }}"
 

@@ -1,0 +1,190 @@
+2024-05-28 19:04:47,134 p=6027 u=user n=ansible | ERROR! the playbook: okaybook.yml could not be found
+2024-05-28 19:04:51,806 p=6038 u=user n=ansible | [WARNING]: While constructing a mapping from
+/home/user/Desktop/vpn/roles/basic/vars/main.yml, line 3, column 1, found a
+duplicate dict key (openvpn_easyrsa_path). Using last defined value only.
+
+2024-05-28 19:04:51,806 p=6038 u=user n=ansible | [WARNING]: While constructing a mapping from
+/home/user/Desktop/vpn/roles/basic/vars/main.yml, line 3, column 1, found a
+duplicate dict key (openvpn_path). Using last defined value only.
+
+2024-05-28 19:04:51,806 p=6038 u=user n=ansible | [WARNING]: While constructing a mapping from
+/home/user/Desktop/vpn/roles/basic/vars/main.yml, line 3, column 1, found a
+duplicate dict key (openvpn_clients). Using last defined value only.
+
+2024-05-28 19:04:51,866 p=6038 u=user n=ansible | PLAY [openvpn] *****************************************************************
+2024-05-28 19:04:51,884 p=6038 u=user n=ansible | TASK [Gathering Facts] *********************************************************
+2024-05-28 19:05:02,012 p=6038 u=user n=ansible | fatal: [ansible_host=user@192.168.0.113]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.0.113 port 22: Connection timed out", "unreachable": true}
+2024-05-28 19:05:02,013 p=6038 u=user n=ansible | PLAY RECAP *********************************************************************
+2024-05-28 19:05:02,013 p=6038 u=user n=ansible | ansible_host=user@192.168.0.113 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-05-28 19:05:27,327 p=6105 u=user n=ansible | [WARNING]: While constructing a mapping from
+/home/user/Desktop/vpn/roles/basic/vars/main.yml, line 3, column 1, found a
+duplicate dict key (openvpn_easyrsa_path). Using last defined value only.
+
+2024-05-28 19:05:27,327 p=6105 u=user n=ansible | [WARNING]: While constructing a mapping from
+/home/user/Desktop/vpn/roles/basic/vars/main.yml, line 3, column 1, found a
+duplicate dict key (openvpn_path). Using last defined value only.
+
+2024-05-28 19:05:27,328 p=6105 u=user n=ansible | [WARNING]: While constructing a mapping from
+/home/user/Desktop/vpn/roles/basic/vars/main.yml, line 3, column 1, found a
+duplicate dict key (openvpn_clients). Using last defined value only.
+
+2024-05-28 19:05:27,380 p=6105 u=user n=ansible | PLAY [openvpn] *****************************************************************
+2024-05-28 19:05:27,389 p=6105 u=user n=ansible | TASK [Gathering Facts] *********************************************************
+2024-05-28 19:05:30,098 p=6105 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:05:30,129 p=6105 u=user n=ansible | TASK [basic : include_tasks] ***************************************************
+2024-05-28 19:05:30,198 p=6105 u=user n=ansible | included: /home/user/Desktop/vpn/roles/basic/tasks/server.yml for ansible_host=user@localhost
+2024-05-28 19:05:30,217 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Install packages] **************************************
+2024-05-28 19:05:46,910 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost]
+2024-05-28 19:05:46,924 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Enabled IPv4 forwarding] *******************************
+2024-05-28 19:05:47,563 p=6105 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:05:47,575 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Create IPTables Chain] *********************************
+2024-05-28 19:05:48,318 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost]
+2024-05-28 19:05:48,326 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Enssure /etc/openvpn/easy-rsa exists] ******************
+2024-05-28 19:05:48,971 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost]
+2024-05-28 19:05:48,984 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Create easy-rsa vars file] *****************************
+2024-05-28 19:05:50,298 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost]
+2024-05-28 19:05:50,313 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Easyrsa init-pki] **************************************
+2024-05-28 19:05:50,978 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost]
+2024-05-28 19:05:50,994 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Easyrsa build-ca] **************************************
+2024-05-28 19:05:51,763 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost]
+2024-05-28 19:05:51,775 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Easyrsa gen-dh] ****************************************
+2024-05-28 19:06:04,552 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost]
+2024-05-28 19:06:04,567 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Easyrsa gen-crl] ***************************************
+2024-05-28 19:06:05,276 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost]
+2024-05-28 19:06:05,288 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Easyrsa genkey secret] *********************************
+2024-05-28 19:06:05,698 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost]
+2024-05-28 19:06:05,709 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Easyrsa build-server-full server nopass] ***************
+2024-05-28 19:06:06,778 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost]
+2024-05-28 19:06:06,789 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Easyrsa build-client-full client nopass] ***************
+2024-05-28 19:06:07,884 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost] => (item=user)
+2024-05-28 19:06:07,899 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Copy files to /etc/openvpn/server] *********************
+2024-05-28 19:06:08,350 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost] => (item=ca.crt)
+2024-05-28 19:06:08,703 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost] => (item=dh.pem)
+2024-05-28 19:06:09,056 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost] => (item=ta.key)
+2024-05-28 19:06:09,422 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost] => (item=issued/user.crt)
+2024-05-28 19:06:09,838 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost] => (item=issued/server.crt)
+2024-05-28 19:06:10,226 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost] => (item=private/ca.key)
+2024-05-28 19:06:10,600 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost] => (item=private/user.key)
+2024-05-28 19:06:10,985 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost] => (item=private/server.key)
+2024-05-28 19:06:10,999 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Copy files to /etc/openvpn] ****************************
+2024-05-28 19:06:11,464 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost] => (item=ca.crt)
+2024-05-28 19:06:11,828 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost] => (item=ta.key)
+2024-05-28 19:06:11,844 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Place server.conf] *************************************
+2024-05-28 19:06:12,544 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost]
+2024-05-28 19:06:12,555 p=6105 u=user n=ansible | TASK [basic : include_tasks] ***************************************************
+2024-05-28 19:06:12,585 p=6105 u=user n=ansible | included: /home/user/Desktop/vpn/roles/basic/tasks/client.yml for ansible_host=user@localhost
+2024-05-28 19:06:12,599 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Copy client-crt files to /etc/openvpn/server] **********
+2024-05-28 19:06:13,001 p=6105 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=user)
+2024-05-28 19:06:13,013 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Copy client-key files to /etc/openvpn/server] **********
+2024-05-28 19:06:13,393 p=6105 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=user)
+2024-05-28 19:06:13,406 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Ensure /etc/openvpn/users exists] **********************
+2024-05-28 19:06:13,778 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost]
+2024-05-28 19:06:13,788 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Copy files to /etc/openvpn/users] **********************
+2024-05-28 19:06:14,202 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost] => (item=ca.crt)
+2024-05-28 19:06:14,563 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost] => (item=ta.key)
+2024-05-28 19:06:14,573 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Copy client-crt files to /etc/openvpn/users] ***********
+2024-05-28 19:06:14,940 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost] => (item=user)
+2024-05-28 19:06:14,951 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Copy client-key files to /etc/openvpn/users] ***********
+2024-05-28 19:06:15,320 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost] => (item=user)
+2024-05-28 19:06:15,334 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Register CA.crt] ***************************************
+2024-05-28 19:06:15,816 p=6105 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:06:15,829 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Register ta.key] ***************************************
+2024-05-28 19:06:16,181 p=6105 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:06:16,192 p=6105 u=user n=ansible | TASK [basic : OpenVPN | CLient certs] ******************************************
+2024-05-28 19:06:16,540 p=6105 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=user)
+2024-05-28 19:06:16,552 p=6105 u=user n=ansible | TASK [basic : OpenVPN | CLient keys] *******************************************
+2024-05-28 19:06:16,903 p=6105 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=user)
+2024-05-28 19:06:16,919 p=6105 u=user n=ansible | TASK [basic : OpenVPN | Generate client config] ********************************
+2024-05-28 19:06:17,628 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost] => (item=[{'content': 'Q2VydGlmaWNhdGU6CiAgICBEYXRhOgogICAgICAgIFZlcnNpb246IDMgKDB4MikKICAgICAgICBTZXJpYWwgTnVtYmVyOgogICAgICAgICAgICAyNjoxMzo4ZTpiNjozZjo0ZDoyOToxNTo2YzpjOTpiYjo3ZjplNjpkYTozMDpjOAogICAgICAgIFNpZ25hdHVyZSBBbGdvcml0aG06IHNoYTI1NldpdGhSU0FFbmNyeXB0aW9uCiAgICAgICAgSXNzdWVyOiBDTj1FYXN5LVJTQSBDQQogICAgICAgIFZhbGlkaXR5CiAgICAgICAgICAgIE5vdCBCZWZvcmU6IE1heSAyOCAxNDowNjowNyAyMDI0IEdNVAogICAgICAgICAgICBOb3QgQWZ0ZXIgOiBBdWcgMzEgMTQ6MDY6MDcgMjAyNiBHTVQKICAgICAgICBTdWJqZWN0OiBDTj11c2VyCiAgICAgICAgU3ViamVjdCBQdWJsaWMgS2V5IEluZm86CiAgICAgICAgICAgIFB1YmxpYyBLZXkgQWxnb3JpdGhtOiByc2FFbmNyeXB0aW9uCiAgICAgICAgICAgICAgICBQdWJsaWMtS2V5OiAoMjA0OCBiaXQpCiAgICAgICAgICAgICAgICBNb2R1bHVzOgogICAgICAgICAgICAgICAgICAgIDAwOmY5OjczOjVmOjQ2OjQxOjQ1OjUwOjE0OjJmOjY5OjRkOmM5Ojg0OjI2OgogICAgICAgICAgICAgICAgICAgIDJkOjAwOjk0OmU1OmQ2OmVlOmMxOjNiOmNhOmViOjQ2OmU1OjJkOjQwOmZlOgogICAgICAgICAgICAgICAgICAgIDQwOjMyOjY2OmZiOjc0OjNhOjMxOjgxOjFiOjcyOjFlOjJiOmRkOjgzOjE1OgogICAgICAgICAgICAgICAgICAgIDZiOmI2OjA4OjE3OjQ0OjRjOjFiOjA5OjExOjQ4OjU4OmI4OjIxOmE0OjEwOgogICAgICAgICAgICAgICAgICAgIGE1OjM0OmFiOjAwOjYxOjJlOmVkOmIzOjA4OjRiOmFkOjU5OmRhOjUwOjE2OgogICAgICAgICAgICAgICAgICAgIGFhOmJjOmE3OmFkOmI5OmRjOmZjOmZiOjJkOjcyOjlkOjBhOmFjOjBhOjUyOgogICAgICAgICAgICAgICAgICAgIDdjOmYwOjljOjQ3OjBkOjM5OmNlOmU4OmEwOjU0OjI5OmE4OmQ0OjhjOjAwOgogICAgICAgICAgICAgICAgICAgIDA0OjcxOmExOjJlOjEyOjc4OjgzOmM4OmZjOmI1OjMwOjIzOjgzOjE1OjY2OgogICAgICAgICAgICAgICAgICAgIDIyOmJkOjgxOjE5OjZjOjIzOjUyOjVhOjlmOmI4OjRiOmYzOmE5OjRjOjEyOgogICAgICAgICAgICAgICAgICAgIGJjOjMyOjEyOjYzOjNkOjNkOjQyOmJlOjU1OjY3OmNlOmM0OmRjOmE0OmMyOgogICAgICAgICAgICAgICAgICAgIGUwOmQ5OmE1OjQ0OjNkOmQyOjQyOmFhOjgxOmUwOjhhOjdiOjE0OjZmOjMzOgogICAgICAgICAgICAgICAgICAgIDdiOmI5OjY1OmJiOjM5OmE2OmVlOmI0OmVjOjNmOjgxOmQxOmE3OjlhOjg5OgogICAgICAgICAgICAgICAgICAgIDg1OmU0OmI1OmNmOjk3OjgxOjUyOmM2OmYyOmNmOjUzOjBhOjQ0OjIzOmI1OgogICAgICAgICAgICAgICAgICAgIGE5OmVjOjkyOjBjOjc1OjdhOjY3OjE4OmRkOjFmOmNmOjdmOmUzOjQ4OmRlOgogICAgICAgICAgICAgICAgICAgIDBkOjBhOjZmOjU2OjIyOmVlOmE4OmRjOjlkOjUzOjE3Ojg3OmU5OmM0OjMyOgogICAgICAgICAgICAgICAgICAgIDY2OmRhOjdjOmRmOjE5OmIzOjEwOjNlOmYzOjdiOjBiOmIwOjM4OmEyOjIyOgogICAgICAgICAgICAgICAgICAgIGI1OjJiOjI1OjljOjU4OmQ3OmZlOjFmOjAyOjZjOjE5OmM2OjY4OjI3OmQ2OgogICAgICAgICAgICAgICAgICAgIDhiOjZkCiAgICAgICAgICAgICAgICBFeHBvbmVudDogNjU1MzcgKDB4MTAwMDEpCiAgICAgICAgWDUwOXYzIGV4dGVuc2lvbnM6CiAgICAgICAgICAgIFg1MDl2MyBCYXNpYyBDb25zdHJhaW50czogCiAgICAgICAgICAgICAgICBDQTpGQUxTRQogICAgICAgICAgICBYNTA5djMgU3ViamVjdCBLZXkgSWRlbnRpZmllcjogCiAgICAgICAgICAgICAgICA5MDpGMToyMDozQjpDMDozNTo5MTpCNjo4QzpEOTowODoyRTo0MDowMTpCNjpCOTo1OTo1NzpGMDo4RgogICAgICAgICAgICBYNTA5djMgQXV0aG9yaXR5IEtleSBJZGVudGlmaWVyOiAKICAgICAgICAgICAgICAgIGtleWlkOjg4OjI1OkIzOjc2OjIyOjVCOjJDOjgxOkRFOjU4OkI5OjgzOjNEOjI1OjAwOjEyOjdCOjA1OjFFOkExCiAgICAgICAgICAgICAgICBEaXJOYW1lOi9DTj1FYXN5LVJTQSBDQQogICAgICAgICAgICAgICAgc2VyaWFsOjZFOkM3OjM0OkNFOjAzOjYzOkNBOjA3OkY0OkQ5OjgyOjUwOjM2OjM3OjQ5OjBDOjc4OkNFOjRCOkQ5CiAgICAgICAgICAgIFg1MDl2MyBFeHRlbmRlZCBLZXkgVXNhZ2U6IAogICAgICAgICAgICAgICAgVExTIFdlYiBDbGllbnQgQXV0aGVudGljYXRpb24KICAgICAgICAgICAgWDUwOXYzIEtleSBVc2FnZTogCiAgICAgICAgICAgICAgICBEaWdpdGFsIFNpZ25hdHVyZQogICAgU2lnbmF0dXJlIEFsZ29yaXRobTogc2hhMjU2V2l0aFJTQUVuY3J5cHRpb24KICAgIFNpZ25hdHVyZSBWYWx1ZToKICAgICAgICA0ZTplZTpjOTo2YTphYTpmYzpiYjo1Mjo0YzpmYzoxODo4ZTpiYjpiNjo4YzpiNjo5YjowZToKICAgICAgICBhZTpiOTplYTpjMjowNjo2Yjo3NTo2MDpmYzpjYzowNzpjZDo3ZDphNjo5NjpkZDozODpiNDoKICAgICAgICA0NzpiMzo3ZjplNzo5YTowZjpiYTo4OTplODoyNTplYTo5NDpkMzo4ZDo1MDo3MDo4MDphZToKICAgICAgICA3MTpkNDozZDo5Zjo0Yzo2Nzo2YzpjMDoxOTo4Njo1Mjo1MDo3MDo3Yzo2NTpmYjo3ZTo2ZDoKICAgICAgICAzYzo2ZDpiYTpkZjpiNjplNzo0MzpkZDo5OTpjNDo4MDo1Zjo3MzoyYTo2MToxOTphYjowNzoKICAgICAgICBlNzozMTo2YjoxNjpmNTo4ZDo0NTo4NjozYjoyZjo0YTowNzo0MTo3NDo3NTpkYzo1YTo4YToKICAgICAgICA2YTphOTo3OTphZDpkNjowNjpiYTowNzplMjo3Yzo2MjpiNzoxNTpmYTo3OTo5OTpkZTpiYToKICAgICAgICA3YjpiYjpmOTpiNDo1MzozMjpiNDozNToyYTo0NzpkYTpmMDo3NzplNzphYzpjZjo4MTo1ZDoKICAgICAgICBiYTozZjoxODowZTo5NzozMDo0ODo0NTo0Mjo2MjpjZjpmOTo2YTo1MTo2NzpjNjoyZDo3MzoKICAgICAgICBkYjowOTphZTowODpkZDphODplNjpmZTozYTpmZjoyNjoyZjphMjowYjo5ZDphYTo1NDpjOToKICAgICAgICBjMzo4OToyMDo3ZjpjZDo5NzphOTplMTowMzo4Yjo4Nzo2MjplODoxYzpkNTphNjpmYTpmODoKICAgICAgICAwYTphYzozNjoxYjpkYjozZjozODpkNzoyNjpkNjowZjpiZDpiYjo3OTozOToyNjpmNzplOToKICAgICAgICAzZDplNTo5NDo2MTowYjo2MTpjMDo4OTo5OToxZDpkZTo1MTpmZjo0NDowZDo4ZjphMjo1NjoKICAgICAgICBmMzpiNDpjZTo1NDo2ZjowYTo5NTplMDpjYzoxNDpkZjo0ZTo5YzpjNjo2MToyZDoyNDozNjoKICAgICAgICAxMjo2Nzo5Nzo3OQotLS0tLUJFR0lOIENFUlRJRklDQVRFLS0tLS0KTUlJRFVqQ0NBanFnQXdJQkFnSVFKaE9PdGo5TktSVnN5YnQvNXRvd3lEQU5CZ2txaGtpRzl3MEJBUXNGQURBVwpNUlF3RWdZRFZRUUREQXRGWVhONUxWSlRRU0JEUVRBZUZ3MHlOREExTWpneE5EQTJNRGRhRncweU5qQTRNekV4Ck5EQTJNRGRhTUE4eERUQUxCZ05WQkFNTUJIVnpaWEl3Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXcKZ2dFS0FvSUJBUUQ1YzE5R1FVVlFGQzlwVGNtRUppMEFsT1hXN3NFN3l1dEc1UzFBL2tBeVp2dDBPakdCRzNJZQpLOTJERld1MkNCZEVUQnNKRVVoWXVDR2tFS1UwcXdCaEx1MnpDRXV0V2RwUUZxcThwNjI1M1B6N0xYS2RDcXdLClVuenduRWNOT2M3b29GUXBxTlNNQUFSeG9TNFNlSVBJL0xVd0k0TVZaaUs5Z1Jsc0kxSmFuN2hMODZsTUVyd3kKRW1NOVBVSytWV2ZPeE55a3d1RFpwVVE5MGtLcWdlQ0tleFJ2TTN1NVpiczVwdTYwN0QrQjBhZWFpWVhrdGMrWApnVkxHOHM5VENrUWp0YW5za2d4MWVtY1kzUi9QZitOSTNnMEtiMVlpN3FqY25WTVhoK25FTW1iYWZOOFpzeEErCjgzc0xzRGlpSXJVckpaeFkxLzRmQW13WnhtZ24xb3R0QWdNQkFBR2pnYUl3Z1o4d0NRWURWUjBUQkFJd0FEQWQKQmdOVkhRNEVGZ1FVa1BFZ084QTFrYmFNMlFndVFBRzJ1VmxYOEk4d1VRWURWUjBqQkVvd1NJQVVpQ1d6ZGlKYgpMSUhlV0xtRFBTVUFFbnNGSHFHaEdxUVlNQll4RkRBU0JnTlZCQU1NQzBWaGMza3RVbE5CSUVOQmdoUnV4elRPCkEyUEtCL1RaZ2xBMk4wa01lTTVMMlRBVEJnTlZIU1VFRERBS0JnZ3JCZ0VGQlFjREFqQUxCZ05WSFE4RUJBTUMKQjRBd0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFFN3V5V3FxL0x0U1RQd1lqcnUyakxhYkRxNjU2c0lHYTNWZwovTXdIelgybWx0MDR0RWV6ZitlYUQ3cUo2Q1hxbE5PTlVIQ0FybkhVUFo5TVoyekFHWVpTVUhCOFpmdCtiVHh0CnV0KzI1MFBkbWNTQVgzTXFZUm1yQitjeGF4YjFqVVdHT3k5S0IwRjBkZHhhaW1xcGVhM1dCcm9ING54aXR4WDYKZVpuZXVudTcrYlJUTXJRMUtrZmE4SGZuck0rQlhiby9HQTZYTUVoRlFtTFArV3BSWjhZdGM5c0pyZ2pkcU9iKwpPdjhtTDZJTG5hcFV5Y09KSUgvTmw2bmhBNHVIWXVnYzFhYjYrQXFzTmh2YlB6alhKdFlQdmJ0NU9TYjM2VDNsCmxHRUxZY0NKbVIzZVVmOUVEWStpVnZPMHpsUnZDcFhnekJUZlRwekdZUzBrTmhKbmwzaz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=', 'source': '/etc/openvpn/users/user.crt', 'encoding': 'base64', 'invocation': {'module_args': {'src': '/etc/openvpn/users/user.crt'}}, 'failed': False, 'changed': False, 'item': 'user', 'ansible_loop_var': 'item'}, {'content': 'LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUV2Z0lCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktnd2dnU2tBZ0VBQW9JQkFRRDVjMTlHUVVWUUZDOXAKVGNtRUppMEFsT1hXN3NFN3l1dEc1UzFBL2tBeVp2dDBPakdCRzNJZUs5MkRGV3UyQ0JkRVRCc0pFVWhZdUNHawpFS1UwcXdCaEx1MnpDRXV0V2RwUUZxcThwNjI1M1B6N0xYS2RDcXdLVW56d25FY05PYzdvb0ZRcHFOU01BQVJ4Cm9TNFNlSVBJL0xVd0k0TVZaaUs5Z1Jsc0kxSmFuN2hMODZsTUVyd3lFbU05UFVLK1ZXZk94Tnlrd3VEWnBVUTkKMGtLcWdlQ0tleFJ2TTN1NVpiczVwdTYwN0QrQjBhZWFpWVhrdGMrWGdWTEc4czlUQ2tRanRhbnNrZ3gxZW1jWQozUi9QZitOSTNnMEtiMVlpN3FqY25WTVhoK25FTW1iYWZOOFpzeEErODNzTHNEaWlJclVySlp4WTEvNGZBbXdaCnhtZ24xb3R0QWdNQkFBRUNnZ0VBUkUwblNxekhoa0FvcFN3ejM3ZTJQY0VIVjcwQzh0VENiQ1NIS2hNVHo5a3IKdzZ6RmJrVHVENzNTQnJqZ1I3VGFiZ3hxb0taM1NUZU5tb2NtUFJBUGFBeTU3L24zQXEybUhhUy9OaTJ4WDBGWAprWXpsbzROUERQcCtGRUd1SUx4eDMzYzY1RGRDajF6WDJxY1gzdDNaczdnaUFsN08zeGFhcjRuQVJNQTlKZXVvClhwak04UlNMR1AzWm8wY3BGazQrR1JNVUdCZDJ2R21haFBDYWNsa2RJa2MzeDBBTTlDWG5XdjlWSElZSExjSE8Kcis1OGdGcCtNZzh1bXA1R2ozaGszS0RrcVVRMGJyYzVHdkw0WHNwVTFFTzFROXdLK2VsbS9mUDNzNkpSakQ0OQpzOWMrdk9HNVcwZGZvL3RpcTJGdDRXSWVhWlZ3Y3A5Z2E3UHVVV09qYndLQmdRRCtUY1cyTlZYMEt6dnFLTEF0Cmh5MGRWNEtnWHR1Y2h0UUVtRjlhMzdoUU10d0xiR2RtYzVxZUVYeHNWODhkSTM0c3I4RGc2Z29HTTNrT0xMUGMKTGVCRjBQS2NsdUtFN0k2OW1vN2M5Q1JlS2FBMTlVOHZ6dHMraFd3YzFXYXFXNnRobDZSNjkwTm1pbllySWVvUAorcFZ1ODh5NmpySVBneDVoREtId01WN1JUd0tCZ1FEN0hWQWxKcERsWFZzZ0h4cVZqZ1VHdERjNkJoR0M5OXU2ClpqWk4zK3dBc29VL2kwR0ZCaTZ5K1pPNlpYVWg2ajM5S0RZcXh2RWMxVVBUdXlxNWtnUVAzdEx0SG94MTB4RWsKV0NuMm55VGl4MEVTTDd3Y09vVUlhWW9HSnJXOStGa2MxNHpEelVueVlJZVNHbk15MmQ0THZBdGE3YU15TWJsaQo5emw3Z051UWd3S0JnQTRUNkJvS0lkUCtnTGFad2djRE1MQXJKQVFVdkR1U0N6S2w3TUZ2R1JqM2Q4NzZGVTlLCm53aVpGelk0TmpMNndBVmhSV0F1RkpmN1NYeExaVG1QSUpjODFmRnRPT1Q2NDN3RGpsMFU5dDV2bDNybE5aa0QKN29jcmc2eWs4NllDcFI0bDh1a0x2eU55RHRDY2RBU21icGRSejhlVUZxOWRKdFZnaWFadVZUMXBBb0dCQUoxRwpFS29UNjNBYjlqUzZCbFpncW5rMmFkaG5jSlJNVkV2OE5FcTEwZ1BseTFxdkJ3d2ZnU1FLK0NFbjVpS2xxTWxqClkvbUt1L3hJL2NBZ1czUDZKWjBpKzR3VE0vbWZoZjd6VU9UcmE1aTFIdVliQzMvS2p3Tmp4bFJ2N2lmYTRVVVYKSTA2R3hxZU5HWnZDQVNCNkgzM04rbmFxbXltV3h2dGF4NSs0WnN1dEFvR0JBSURacEE5M2VuMnViWFlrYy85eAora3gyZnBRaloyb05NV3FJM0JlQTZVUkFWZEgxakJKSEVUVFpxSlNpQVRHeWpEUW9QSGlaL0NranFaeFl4bWFoClYzRnAvbFNPNmRXbW4zSFdNOVBKdXNtU0JUVlNJbWVMTkNMUk5ma3FLSGpSQWNWcXVteVUxSGVnWTVCR1ZMOVYKUEY5eEdyQnAyZmVHT3IyM2FLdXc5QWlECi0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0K', 'source': '/etc/openvpn/users/user.key', 'encoding': 'base64', 'invocation': {'module_args': {'src': '/etc/openvpn/users/user.key'}}, 'failed': False, 'changed': False, 'item': 'user', 'ansible_loop_var': 'item'}])
+2024-05-28 19:06:17,642 p=6105 u=user n=ansible | TASK [basic : Fetch client config] *********************************************
+2024-05-28 19:06:18,005 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost] => (item=user)
+2024-05-28 19:06:18,040 p=6105 u=user n=ansible | RUNNING HANDLER [basic : restart openvpn] **************************************
+2024-05-28 19:06:18,987 p=6105 u=user n=ansible | changed: [ansible_host=user@localhost]
+2024-05-28 19:06:18,996 p=6105 u=user n=ansible | RUNNING HANDLER [basic : enable openvpn] ***************************************
+2024-05-28 19:06:19,589 p=6105 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:06:19,606 p=6105 u=user n=ansible | PLAY RECAP *********************************************************************
+2024-05-28 19:06:19,606 p=6105 u=user n=ansible | ansible_host=user@localhost : ok=32   changed=21   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-05-28 19:09:55,321 p=2660 u=user n=ansible | [WARNING]: While constructing a mapping from
+/home/user/Desktop/vpn/roles/basic/vars/main.yml, line 3, column 1, found a
+duplicate dict key (openvpn_easyrsa_path). Using last defined value only.
+
+2024-05-28 19:09:55,330 p=2660 u=user n=ansible | [WARNING]: While constructing a mapping from
+/home/user/Desktop/vpn/roles/basic/vars/main.yml, line 3, column 1, found a
+duplicate dict key (openvpn_path). Using last defined value only.
+
+2024-05-28 19:09:55,331 p=2660 u=user n=ansible | [WARNING]: While constructing a mapping from
+/home/user/Desktop/vpn/roles/basic/vars/main.yml, line 3, column 1, found a
+duplicate dict key (openvpn_clients). Using last defined value only.
+
+2024-05-28 19:09:55,528 p=2660 u=user n=ansible | PLAY [openvpn] *****************************************************************
+2024-05-28 19:09:55,557 p=2660 u=user n=ansible | TASK [Gathering Facts] *********************************************************
+2024-05-28 19:09:58,238 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:09:58,281 p=2660 u=user n=ansible | TASK [basic : include_tasks] ***************************************************
+2024-05-28 19:09:58,422 p=2660 u=user n=ansible | included: /home/user/Desktop/vpn/roles/basic/tasks/server.yml for ansible_host=user@localhost
+2024-05-28 19:09:58,444 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Install packages] **************************************
+2024-05-28 19:10:02,320 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:10:02,341 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Enabled IPv4 forwarding] *******************************
+2024-05-28 19:10:03,007 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:10:03,055 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Create IPTables Chain] *********************************
+2024-05-28 19:10:04,171 p=2660 u=user n=ansible | changed: [ansible_host=user@localhost]
+2024-05-28 19:10:04,204 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Enssure /etc/openvpn/easy-rsa exists] ******************
+2024-05-28 19:10:04,849 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:10:05,153 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Create easy-rsa vars file] *****************************
+2024-05-28 19:10:07,151 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:10:07,197 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Easyrsa init-pki] **************************************
+2024-05-28 19:10:08,014 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:10:08,047 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Easyrsa build-ca] **************************************
+2024-05-28 19:10:08,688 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:10:08,714 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Easyrsa gen-dh] ****************************************
+2024-05-28 19:10:09,199 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:10:09,208 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Easyrsa gen-crl] ***************************************
+2024-05-28 19:10:09,731 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:10:09,755 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Easyrsa genkey secret] *********************************
+2024-05-28 19:10:10,549 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:10:10,560 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Easyrsa build-server-full server nopass] ***************
+2024-05-28 19:10:11,387 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:10:11,403 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Easyrsa build-client-full client nopass] ***************
+2024-05-28 19:10:11,976 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=user)
+2024-05-28 19:10:11,990 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Copy files to /etc/openvpn/server] *********************
+2024-05-28 19:10:13,374 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=ca.crt)
+2024-05-28 19:10:13,772 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=dh.pem)
+2024-05-28 19:10:14,190 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=ta.key)
+2024-05-28 19:10:14,632 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=issued/user.crt)
+2024-05-28 19:10:15,094 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=issued/server.crt)
+2024-05-28 19:10:15,512 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=private/ca.key)
+2024-05-28 19:10:16,123 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=private/user.key)
+2024-05-28 19:10:16,560 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=private/server.key)
+2024-05-28 19:10:16,573 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Copy files to /etc/openvpn] ****************************
+2024-05-28 19:10:17,093 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=ca.crt)
+2024-05-28 19:10:17,494 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=ta.key)
+2024-05-28 19:10:17,516 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Place server.conf] *************************************
+2024-05-28 19:10:18,324 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:10:18,339 p=2660 u=user n=ansible | TASK [basic : include_tasks] ***************************************************
+2024-05-28 19:10:18,396 p=2660 u=user n=ansible | included: /home/user/Desktop/vpn/roles/basic/tasks/client.yml for ansible_host=user@localhost
+2024-05-28 19:10:18,419 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Copy client-crt files to /etc/openvpn/server] **********
+2024-05-28 19:10:18,996 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=user)
+2024-05-28 19:10:19,021 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Copy client-key files to /etc/openvpn/server] **********
+2024-05-28 19:10:19,708 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=user)
+2024-05-28 19:10:19,793 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Ensure /etc/openvpn/users exists] **********************
+2024-05-28 19:10:20,554 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:10:20,576 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Copy files to /etc/openvpn/users] **********************
+2024-05-28 19:10:21,271 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=ca.crt)
+2024-05-28 19:10:21,824 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=ta.key)
+2024-05-28 19:10:21,906 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Copy client-crt files to /etc/openvpn/users] ***********
+2024-05-28 19:10:22,686 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=user)
+2024-05-28 19:10:22,700 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Copy client-key files to /etc/openvpn/users] ***********
+2024-05-28 19:10:23,631 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=user)
+2024-05-28 19:10:23,648 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Register CA.crt] ***************************************
+2024-05-28 19:10:24,720 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:10:24,748 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Register ta.key] ***************************************
+2024-05-28 19:10:25,424 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost]
+2024-05-28 19:10:25,450 p=2660 u=user n=ansible | TASK [basic : OpenVPN | CLient certs] ******************************************
+2024-05-28 19:10:26,118 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=user)
+2024-05-28 19:10:26,134 p=2660 u=user n=ansible | TASK [basic : OpenVPN | CLient keys] *******************************************
+2024-05-28 19:10:26,706 p=2660 u=user n=ansible | ok: [ansible_host=user@localhost] => (item=user)
+2024-05-28 19:10:26,759 p=2660 u=user n=ansible | TASK [basic : OpenVPN | Generate client config] ********************************
+2024-05-28 19:10:27,953 p=2660 u=user n=ansible | changed: [ansible_host=user@localhost] => (item=[{'content': 'Q2VydGlmaWNhdGU6CiAgICBEYXRhOgogICAgICAgIFZlcnNpb246IDMgKDB4MikKICAgICAgICBTZXJpYWwgTnVtYmVyOgogICAgICAgICAgICAyNjoxMzo4ZTpiNjozZjo0ZDoyOToxNTo2YzpjOTpiYjo3ZjplNjpkYTozMDpjOAogICAgICAgIFNpZ25hdHVyZSBBbGdvcml0aG06IHNoYTI1NldpdGhSU0FFbmNyeXB0aW9uCiAgICAgICAgSXNzdWVyOiBDTj1FYXN5LVJTQSBDQQogICAgICAgIFZhbGlkaXR5CiAgICAgICAgICAgIE5vdCBCZWZvcmU6IE1heSAyOCAxNDowNjowNyAyMDI0IEdNVAogICAgICAgICAgICBOb3QgQWZ0ZXIgOiBBdWcgMzEgMTQ6MDY6MDcgMjAyNiBHTVQKICAgICAgICBTdWJqZWN0OiBDTj11c2VyCiAgICAgICAgU3ViamVjdCBQdWJsaWMgS2V5IEluZm86CiAgICAgICAgICAgIFB1YmxpYyBLZXkgQWxnb3JpdGhtOiByc2FFbmNyeXB0aW9uCiAgICAgICAgICAgICAgICBQdWJsaWMtS2V5OiAoMjA0OCBiaXQpCiAgICAgICAgICAgICAgICBNb2R1bHVzOgogICAgICAgICAgICAgICAgICAgIDAwOmY5OjczOjVmOjQ2OjQxOjQ1OjUwOjE0OjJmOjY5OjRkOmM5Ojg0OjI2OgogICAgICAgICAgICAgICAgICAgIDJkOjAwOjk0OmU1OmQ2OmVlOmMxOjNiOmNhOmViOjQ2OmU1OjJkOjQwOmZlOgogICAgICAgICAgICAgICAgICAgIDQwOjMyOjY2OmZiOjc0OjNhOjMxOjgxOjFiOjcyOjFlOjJiOmRkOjgzOjE1OgogICAgICAgICAgICAgICAgICAgIDZiOmI2OjA4OjE3OjQ0OjRjOjFiOjA5OjExOjQ4OjU4OmI4OjIxOmE0OjEwOgogICAgICAgICAgICAgICAgICAgIGE1OjM0OmFiOjAwOjYxOjJlOmVkOmIzOjA4OjRiOmFkOjU5OmRhOjUwOjE2OgogICAgICAgICAgICAgICAgICAgIGFhOmJjOmE3OmFkOmI5OmRjOmZjOmZiOjJkOjcyOjlkOjBhOmFjOjBhOjUyOgogICAgICAgICAgICAgICAgICAgIDdjOmYwOjljOjQ3OjBkOjM5OmNlOmU4OmEwOjU0OjI5OmE4OmQ0OjhjOjAwOgogICAgICAgICAgICAgICAgICAgIDA0OjcxOmExOjJlOjEyOjc4OjgzOmM4OmZjOmI1OjMwOjIzOjgzOjE1OjY2OgogICAgICAgICAgICAgICAgICAgIDIyOmJkOjgxOjE5OjZjOjIzOjUyOjVhOjlmOmI4OjRiOmYzOmE5OjRjOjEyOgogICAgICAgICAgICAgICAgICAgIGJjOjMyOjEyOjYzOjNkOjNkOjQyOmJlOjU1OjY3OmNlOmM0OmRjOmE0OmMyOgogICAgICAgICAgICAgICAgICAgIGUwOmQ5OmE1OjQ0OjNkOmQyOjQyOmFhOjgxOmUwOjhhOjdiOjE0OjZmOjMzOgogICAgICAgICAgICAgICAgICAgIDdiOmI5OjY1OmJiOjM5OmE2OmVlOmI0OmVjOjNmOjgxOmQxOmE3OjlhOjg5OgogICAgICAgICAgICAgICAgICAgIDg1OmU0OmI1OmNmOjk3OjgxOjUyOmM2OmYyOmNmOjUzOjBhOjQ0OjIzOmI1OgogICAgICAgICAgICAgICAgICAgIGE5OmVjOjkyOjBjOjc1OjdhOjY3OjE4OmRkOjFmOmNmOjdmOmUzOjQ4OmRlOgogICAgICAgICAgICAgICAgICAgIDBkOjBhOjZmOjU2OjIyOmVlOmE4OmRjOjlkOjUzOjE3Ojg3OmU5OmM0OjMyOgogICAgICAgICAgICAgICAgICAgIDY2OmRhOjdjOmRmOjE5OmIzOjEwOjNlOmYzOjdiOjBiOmIwOjM4OmEyOjIyOgogICAgICAgICAgICAgICAgICAgIGI1OjJiOjI1OjljOjU4OmQ3OmZlOjFmOjAyOjZjOjE5OmM2OjY4OjI3OmQ2OgogICAgICAgICAgICAgICAgICAgIDhiOjZkCiAgICAgICAgICAgICAgICBFeHBvbmVudDogNjU1MzcgKDB4MTAwMDEpCiAgICAgICAgWDUwOXYzIGV4dGVuc2lvbnM6CiAgICAgICAgICAgIFg1MDl2MyBCYXNpYyBDb25zdHJhaW50czogCiAgICAgICAgICAgICAgICBDQTpGQUxTRQogICAgICAgICAgICBYNTA5djMgU3ViamVjdCBLZXkgSWRlbnRpZmllcjogCiAgICAgICAgICAgICAgICA5MDpGMToyMDozQjpDMDozNTo5MTpCNjo4QzpEOTowODoyRTo0MDowMTpCNjpCOTo1OTo1NzpGMDo4RgogICAgICAgICAgICBYNTA5djMgQXV0aG9yaXR5IEtleSBJZGVudGlmaWVyOiAKICAgICAgICAgICAgICAgIGtleWlkOjg4OjI1OkIzOjc2OjIyOjVCOjJDOjgxOkRFOjU4OkI5OjgzOjNEOjI1OjAwOjEyOjdCOjA1OjFFOkExCiAgICAgICAgICAgICAgICBEaXJOYW1lOi9DTj1FYXN5LVJTQSBDQQogICAgICAgICAgICAgICAgc2VyaWFsOjZFOkM3OjM0OkNFOjAzOjYzOkNBOjA3OkY0OkQ5OjgyOjUwOjM2OjM3OjQ5OjBDOjc4OkNFOjRCOkQ5CiAgICAgICAgICAgIFg1MDl2MyBFeHRlbmRlZCBLZXkgVXNhZ2U6IAogICAgICAgICAgICAgICAgVExTIFdlYiBDbGllbnQgQXV0aGVudGljYXRpb24KICAgICAgICAgICAgWDUwOXYzIEtleSBVc2FnZTogCiAgICAgICAgICAgICAgICBEaWdpdGFsIFNpZ25hdHVyZQogICAgU2lnbmF0dXJlIEFsZ29yaXRobTogc2hhMjU2V2l0aFJTQUVuY3J5cHRpb24KICAgIFNpZ25hdHVyZSBWYWx1ZToKICAgICAgICA0ZTplZTpjOTo2YTphYTpmYzpiYjo1Mjo0YzpmYzoxODo4ZTpiYjpiNjo4YzpiNjo5YjowZToKICAgICAgICBhZTpiOTplYTpjMjowNjo2Yjo3NTo2MDpmYzpjYzowNzpjZDo3ZDphNjo5NjpkZDozODpiNDoKICAgICAgICA0NzpiMzo3ZjplNzo5YTowZjpiYTo4OTplODoyNTplYTo5NDpkMzo4ZDo1MDo3MDo4MDphZToKICAgICAgICA3MTpkNDozZDo5Zjo0Yzo2Nzo2YzpjMDoxOTo4Njo1Mjo1MDo3MDo3Yzo2NTpmYjo3ZTo2ZDoKICAgICAgICAzYzo2ZDpiYTpkZjpiNjplNzo0MzpkZDo5OTpjNDo4MDo1Zjo3MzoyYTo2MToxOTphYjowNzoKICAgICAgICBlNzozMTo2YjoxNjpmNTo4ZDo0NTo4NjozYjoyZjo0YTowNzo0MTo3NDo3NTpkYzo1YTo4YToKICAgICAgICA2YTphOTo3OTphZDpkNjowNjpiYTowNzplMjo3Yzo2MjpiNzoxNTpmYTo3OTo5OTpkZTpiYToKICAgICAgICA3YjpiYjpmOTpiNDo1MzozMjpiNDozNToyYTo0NzpkYTpmMDo3NzplNzphYzpjZjo4MTo1ZDoKICAgICAgICBiYTozZjoxODowZTo5NzozMDo0ODo0NTo0Mjo2MjpjZjpmOTo2YTo1MTo2NzpjNjoyZDo3MzoKICAgICAgICBkYjowOTphZTowODpkZDphODplNjpmZTozYTpmZjoyNjoyZjphMjowYjo5ZDphYTo1NDpjOToKICAgICAgICBjMzo4OToyMDo3ZjpjZDo5NzphOTplMTowMzo4Yjo4Nzo2MjplODoxYzpkNTphNjpmYTpmODoKICAgICAgICAwYTphYzozNjoxYjpkYjozZjozODpkNzoyNjpkNjowZjpiZDpiYjo3OTozOToyNjpmNzplOToKICAgICAgICAzZDplNTo5NDo2MTowYjo2MTpjMDo4OTo5OToxZDpkZTo1MTpmZjo0NDowZDo4ZjphMjo1NjoKICAgICAgICBmMzpiNDpjZTo1NDo2ZjowYTo5NTplMDpjYzoxNDpkZjo0ZTo5YzpjNjo2MToyZDoyNDozNjoKICAgICAgICAxMjo2Nzo5Nzo3OQotLS0tLUJFR0lOIENFUlRJRklDQVRFLS0tLS0KTUlJRFVqQ0NBanFnQXdJQkFnSVFKaE9PdGo5TktSVnN5YnQvNXRvd3lEQU5CZ2txaGtpRzl3MEJBUXNGQURBVwpNUlF3RWdZRFZRUUREQXRGWVhONUxWSlRRU0JEUVRBZUZ3MHlOREExTWpneE5EQTJNRGRhRncweU5qQTRNekV4Ck5EQTJNRGRhTUE4eERUQUxCZ05WQkFNTUJIVnpaWEl3Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXcKZ2dFS0FvSUJBUUQ1YzE5R1FVVlFGQzlwVGNtRUppMEFsT1hXN3NFN3l1dEc1UzFBL2tBeVp2dDBPakdCRzNJZQpLOTJERld1MkNCZEVUQnNKRVVoWXVDR2tFS1UwcXdCaEx1MnpDRXV0V2RwUUZxcThwNjI1M1B6N0xYS2RDcXdLClVuenduRWNOT2M3b29GUXBxTlNNQUFSeG9TNFNlSVBJL0xVd0k0TVZaaUs5Z1Jsc0kxSmFuN2hMODZsTUVyd3kKRW1NOVBVSytWV2ZPeE55a3d1RFpwVVE5MGtLcWdlQ0tleFJ2TTN1NVpiczVwdTYwN0QrQjBhZWFpWVhrdGMrWApnVkxHOHM5VENrUWp0YW5za2d4MWVtY1kzUi9QZitOSTNnMEtiMVlpN3FqY25WTVhoK25FTW1iYWZOOFpzeEErCjgzc0xzRGlpSXJVckpaeFkxLzRmQW13WnhtZ24xb3R0QWdNQkFBR2pnYUl3Z1o4d0NRWURWUjBUQkFJd0FEQWQKQmdOVkhRNEVGZ1FVa1BFZ084QTFrYmFNMlFndVFBRzJ1VmxYOEk4d1VRWURWUjBqQkVvd1NJQVVpQ1d6ZGlKYgpMSUhlV0xtRFBTVUFFbnNGSHFHaEdxUVlNQll4RkRBU0JnTlZCQU1NQzBWaGMza3RVbE5CSUVOQmdoUnV4elRPCkEyUEtCL1RaZ2xBMk4wa01lTTVMMlRBVEJnTlZIU1VFRERBS0JnZ3JCZ0VGQlFjREFqQUxCZ05WSFE4RUJBTUMKQjRBd0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFFN3V5V3FxL0x0U1RQd1lqcnUyakxhYkRxNjU2c0lHYTNWZwovTXdIelgybWx0MDR0RWV6ZitlYUQ3cUo2Q1hxbE5PTlVIQ0FybkhVUFo5TVoyekFHWVpTVUhCOFpmdCtiVHh0CnV0KzI1MFBkbWNTQVgzTXFZUm1yQitjeGF4YjFqVVdHT3k5S0IwRjBkZHhhaW1xcGVhM1dCcm9ING54aXR4WDYKZVpuZXVudTcrYlJUTXJRMUtrZmE4SGZuck0rQlhiby9HQTZYTUVoRlFtTFArV3BSWjhZdGM5c0pyZ2pkcU9iKwpPdjhtTDZJTG5hcFV5Y09KSUgvTmw2bmhBNHVIWXVnYzFhYjYrQXFzTmh2YlB6alhKdFlQdmJ0NU9TYjM2VDNsCmxHRUxZY0NKbVIzZVVmOUVEWStpVnZPMHpsUnZDcFhnekJUZlRwekdZUzBrTmhKbmwzaz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=', 'source': '/etc/openvpn/users/user.crt', 'encoding': 'base64', 'invocation': {'module_args': {'src': '/etc/openvpn/users/user.crt'}}, 'failed': False, 'changed': False, 'item': 'user', 'ansible_loop_var': 'item'}, {'content': 'LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUV2Z0lCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktnd2dnU2tBZ0VBQW9JQkFRRDVjMTlHUVVWUUZDOXAKVGNtRUppMEFsT1hXN3NFN3l1dEc1UzFBL2tBeVp2dDBPakdCRzNJZUs5MkRGV3UyQ0JkRVRCc0pFVWhZdUNHawpFS1UwcXdCaEx1MnpDRXV0V2RwUUZxcThwNjI1M1B6N0xYS2RDcXdLVW56d25FY05PYzdvb0ZRcHFOU01BQVJ4Cm9TNFNlSVBJL0xVd0k0TVZaaUs5Z1Jsc0kxSmFuN2hMODZsTUVyd3lFbU05UFVLK1ZXZk94Tnlrd3VEWnBVUTkKMGtLcWdlQ0tleFJ2TTN1NVpiczVwdTYwN0QrQjBhZWFpWVhrdGMrWGdWTEc4czlUQ2tRanRhbnNrZ3gxZW1jWQozUi9QZitOSTNnMEtiMVlpN3FqY25WTVhoK25FTW1iYWZOOFpzeEErODNzTHNEaWlJclVySlp4WTEvNGZBbXdaCnhtZ24xb3R0QWdNQkFBRUNnZ0VBUkUwblNxekhoa0FvcFN3ejM3ZTJQY0VIVjcwQzh0VENiQ1NIS2hNVHo5a3IKdzZ6RmJrVHVENzNTQnJqZ1I3VGFiZ3hxb0taM1NUZU5tb2NtUFJBUGFBeTU3L24zQXEybUhhUy9OaTJ4WDBGWAprWXpsbzROUERQcCtGRUd1SUx4eDMzYzY1RGRDajF6WDJxY1gzdDNaczdnaUFsN08zeGFhcjRuQVJNQTlKZXVvClhwak04UlNMR1AzWm8wY3BGazQrR1JNVUdCZDJ2R21haFBDYWNsa2RJa2MzeDBBTTlDWG5XdjlWSElZSExjSE8Kcis1OGdGcCtNZzh1bXA1R2ozaGszS0RrcVVRMGJyYzVHdkw0WHNwVTFFTzFROXdLK2VsbS9mUDNzNkpSakQ0OQpzOWMrdk9HNVcwZGZvL3RpcTJGdDRXSWVhWlZ3Y3A5Z2E3UHVVV09qYndLQmdRRCtUY1cyTlZYMEt6dnFLTEF0Cmh5MGRWNEtnWHR1Y2h0UUVtRjlhMzdoUU10d0xiR2RtYzVxZUVYeHNWODhkSTM0c3I4RGc2Z29HTTNrT0xMUGMKTGVCRjBQS2NsdUtFN0k2OW1vN2M5Q1JlS2FBMTlVOHZ6dHMraFd3YzFXYXFXNnRobDZSNjkwTm1pbllySWVvUAorcFZ1ODh5NmpySVBneDVoREtId01WN1JUd0tCZ1FEN0hWQWxKcERsWFZzZ0h4cVZqZ1VHdERjNkJoR0M5OXU2ClpqWk4zK3dBc29VL2kwR0ZCaTZ5K1pPNlpYVWg2ajM5S0RZcXh2RWMxVVBUdXlxNWtnUVAzdEx0SG94MTB4RWsKV0NuMm55VGl4MEVTTDd3Y09vVUlhWW9HSnJXOStGa2MxNHpEelVueVlJZVNHbk15MmQ0THZBdGE3YU15TWJsaQo5emw3Z051UWd3S0JnQTRUNkJvS0lkUCtnTGFad2djRE1MQXJKQVFVdkR1U0N6S2w3TUZ2R1JqM2Q4NzZGVTlLCm53aVpGelk0TmpMNndBVmhSV0F1RkpmN1NYeExaVG1QSUpjODFmRnRPT1Q2NDN3RGpsMFU5dDV2bDNybE5aa0QKN29jcmc2eWs4NllDcFI0bDh1a0x2eU55RHRDY2RBU21icGRSejhlVUZxOWRKdFZnaWFadVZUMXBBb0dCQUoxRwpFS29UNjNBYjlqUzZCbFpncW5rMmFkaG5jSlJNVkV2OE5FcTEwZ1BseTFxdkJ3d2ZnU1FLK0NFbjVpS2xxTWxqClkvbUt1L3hJL2NBZ1czUDZKWjBpKzR3VE0vbWZoZjd6VU9UcmE1aTFIdVliQzMvS2p3Tmp4bFJ2N2lmYTRVVVYKSTA2R3hxZU5HWnZDQVNCNkgzM04rbmFxbXltV3h2dGF4NSs0WnN1dEFvR0JBSURacEE5M2VuMnViWFlrYy85eAora3gyZnBRaloyb05NV3FJM0JlQTZVUkFWZEgxakJKSEVUVFpxSlNpQVRHeWpEUW9QSGlaL0NranFaeFl4bWFoClYzRnAvbFNPNmRXbW4zSFdNOVBKdXNtU0JUVlNJbWVMTkNMUk5ma3FLSGpSQWNWcXVteVUxSGVnWTVCR1ZMOVYKUEY5eEdyQnAyZmVHT3IyM2FLdXc5QWlECi0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0K', 'source': '/etc/openvpn/users/user.key', 'encoding': 'base64', 'invocation': {'module_args': {'src': '/etc/openvpn/users/user.key'}}, 'failed': False, 'changed': False, 'item': 'user', 'ansible_loop_var': 'item'}])
+2024-05-28 19:10:27,970 p=2660 u=user n=ansible | TASK [basic : Fetch client config] *********************************************
+2024-05-28 19:10:28,627 p=2660 u=user n=ansible | changed: [ansible_host=user@localhost] => (item=user)
+2024-05-28 19:10:28,843 p=2660 u=user n=ansible | PLAY RECAP *********************************************************************
+2024-05-28 19:10:28,844 p=2660 u=user n=ansible | ansible_host=user@localhost : ok=30   changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

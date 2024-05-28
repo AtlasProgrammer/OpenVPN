@@ -27,7 +27,7 @@
     chain: POSTROUTING
     jump: MASQUERADE
     protocol: all
-    source: '192.168.1.0/24'
+    source: '10.9.0.0/24'
     out_interface: enp0s3
     comment: Ansible Nat masquerade
   
